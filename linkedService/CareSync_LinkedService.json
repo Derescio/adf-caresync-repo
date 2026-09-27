@@ -1,0 +1,10 @@
+{
+	"name": "CareSync_LinkedService",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://caresyncsprojectstorage.dfs.core.windows.net/"
+		}
+	}
+}
