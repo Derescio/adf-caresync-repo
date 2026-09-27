@@ -1,0 +1,12 @@
+{
+	"name": "Postgres_DataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Postgres_LinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": []
+	}
+}
