@@ -59,7 +59,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "",
+								"variableName": "TestVariable",
 								"value": {
 									"value": "@item().table_id",
 									"type": "Expression"
