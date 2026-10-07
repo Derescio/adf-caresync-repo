@@ -188,6 +188,10 @@
 							"value": "@variables('Start Time')",
 							"type": "Expression"
 						},
+						"merge_keys": {
+							"value": "@coalesce(\n    activity('Read Table Details').output.firstRow.merge_keys,''\n)",
+							"type": "Expression"
+						},
 						"load_type": {
 							"value": "@activity('Read Table Details').output.firstRow.load_type",
 							"type": "Expression"
