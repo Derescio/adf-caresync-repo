@@ -385,6 +385,9 @@
 			},
 			"watermark_value": {
 				"type": "String"
+			},
+			"merge_keys": {
+				"type": "String"
 			}
 		},
 		"annotations": []
