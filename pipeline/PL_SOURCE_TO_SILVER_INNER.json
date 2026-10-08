@@ -55,7 +55,7 @@
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Switch1",
+						"activity": "switch",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -306,7 +306,7 @@
 				}
 			},
 			{
-				"name": "Switch1",
+				"name": "switch",
 				"type": "Switch",
 				"dependsOn": [
 					{
