@@ -80,7 +80,7 @@
 							}
 						},
 						{
-							"name": "Update Failed Status",
+							"name": "Gold Notebook Failure",
 							"type": "Script",
 							"dependsOn": [
 								{
