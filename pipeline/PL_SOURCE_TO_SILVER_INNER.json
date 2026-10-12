@@ -324,7 +324,7 @@
 					},
 					"cases": [
 						{
-							"value": "neon+postgres",
+							"value": "neon_postgres",
 							"activities": [
 								{
 									"name": "Ingestion-Source-Landing",
