@@ -196,7 +196,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('Read Table Details').output.firstRow.load_type, 'FULL')\n",
+						"value": "@not(equals(activity('Read Table Details').output.firstRow.load_type, 'FULL'))\n",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
