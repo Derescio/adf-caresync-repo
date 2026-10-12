@@ -680,7 +680,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@not(equals(activity('Read Table Details').output.firstRow.load_type, 'FULL'))\r\n",
+								"value": "@not(equals(activity('Read Table Details').output.firstRow.load_type, 'FULL'))\n",
 								"type": "Expression"
 							},
 							"ifTrueActivities": [
@@ -809,7 +809,7 @@
 							},
 							"cases": [
 								{
-									"value": "neon+postgres",
+									"value": "neon_postgres",
 									"activities": [
 										{
 											"name": "Ingestion-Source-Landing",
