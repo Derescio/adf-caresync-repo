@@ -5,6 +5,10 @@
 			"email": {
 				"type": "string",
 				"value": "damion.wilson@gmail.com"
+			},
+			"env": {
+				"type": "string",
+				"value": "DEV"
 			}
 		}
 	},
