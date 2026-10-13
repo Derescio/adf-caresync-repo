@@ -1,0 +1,12 @@
+{
+	"name": "adfcaresyncRG",
+	"properties": {
+		"globalParameters": {
+			"email": {
+				"type": "string",
+				"value": "damion.wilson@gmail.com"
+			}
+		}
+	},
+	"location": "eastus"
+}
