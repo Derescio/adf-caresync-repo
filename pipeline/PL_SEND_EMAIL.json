@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from ctrl.audit_log where run_id = @{pipeline().parameters.adf_run_id}",
+							"value": "SELECT * from ctrl.audit_log where adf_run_id='@{pipeline().parameters.adf_run_id}' ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -56,7 +56,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "Body_footer",
-					"value": ""
+					"value": "Get In touch...."
 				}
 			},
 			{
@@ -148,7 +148,41 @@
 				"typeProperties": {
 					"variableName": "Logic Apps Body",
 					"value": {
-						"value": "{\n  \"Subject\":\"@{variables('Email Subject')}\",\n  \"Email\": \"@{pipeline().globalParameters.email}\",\n  \"Body Header\":\"@{variables('body_header')}\",\n  \"Body Footer\":\"@{variables('Body_footer')}\",\n  \"Status Table\": activity('Read Table Status').output.value\n}",
+						"value": "{\n  \"Subject\":\"@{variables('Email Subject')}\",\n  \"Email\": \"@{pipeline().globalParameters.email}\",\n  \"Body Header\":\"@{variables('body_header')}\",\n  \"Body Footer\":\"@{variables('Body_footer')}\",\n  \"Status Table\": @{activity('Read Table Status').output.value}\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Send Email",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prepare Logic Apps Body",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"url": {
+						"value": "@pipeline().globalParameters.logic_app_url",
+						"type": "Expression"
+					},
+					"body": {
+						"value": "@variables('Logic Apps Body')",
 						"type": "Expression"
 					}
 				}
@@ -157,7 +191,7 @@
 		"parameters": {
 			"adf_run_id": {
 				"type": "string",
-				"defaultValue": " 6e12b5b7-8911-494f-bfdb-005f9637e1a2"
+				"defaultValue": "6e12b5b7-8911-494f-bfdb-005f9637e1a2"
 			}
 		},
 		"variables": {
