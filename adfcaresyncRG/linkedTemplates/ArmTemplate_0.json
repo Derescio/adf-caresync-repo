@@ -571,6 +571,10 @@
 								"source_file_format": {
 									"value": "@coalesce(activity('Read Table Details').output.firstRow.source_file_format,'')",
 									"type": "Expression"
+								},
+								"load_type": {
+									"value": "@activity('Read Table Details').output.firstRow.load_type",
+									"type": "Expression"
 								}
 							}
 						},
@@ -1233,11 +1237,11 @@
 				"parameters": {
 					"source_system": {
 						"type": "string",
-						"defaultValue": "adls_csv"
+						"defaultValue": "neon_postgres"
 					},
 					"adf_run_id": {
 						"type": "string",
-						"defaultValue": "a6"
+						"defaultValue": "b3"
 					}
 				},
 				"variables": {
